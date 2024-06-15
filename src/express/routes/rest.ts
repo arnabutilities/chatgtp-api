@@ -13,7 +13,9 @@ router.use(morgan('dev'));
 
 router.use((req: Request, res: Response, next) => {
     req.headers['APP-SERVER-REQUEST-UUID'] = crypto.randomUUID();
-    console.log('Time: ', Date.now());
+    console.log('[TIME]: ', new Date());
+    console.log('[ROUTE]: REST');
+    console.log('[UUID]:', req.headers['APP-SERVER-REQUEST-UUID']);
     next();
 });
 

@@ -2,8 +2,8 @@
 
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from '@apollo/server/standalone';
-import {typeDefs} from "./schemas/index.js"
-import {resolvers} from "./resolvers/index.js"
+import {typeDefs} from "../schemas"
+import {resolvers} from "../resolvers"
 
 // definition and your set of resolvers.
 const server = new ApolloServer({
@@ -15,8 +15,8 @@ const server = new ApolloServer({
   //  1. creates an Express app
   //  2. installs your ApolloServer instance as middleware
   //  3. prepares your app to handle incoming requests
-  const { url } = await startStandaloneServer(server, {
+  startStandaloneServer(server, {
     listen: { port: parseInt(process.env.PORT || "4000") },
+  }).then(({url}) => {
+    console.log(`🚀  Server ready at: ${url}`);
   });
-  
-  console.log(`🚀  Server ready at: ${url}`);

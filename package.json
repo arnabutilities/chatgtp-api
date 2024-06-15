@@ -6,8 +6,8 @@
   "scripts": {
     "test": "npm run test",
     "compile": "tsc",
-    "start-express": "npm run compile && node ./dist/express/index.js",
-    "start-apollo": "npm run compile && node ./dist/graphql/apollo/index.js"
+    "start-express": "npm run compile && node ./dist/src/express/index.js",
+    "start-apollo": "npm run compile && node ./dist/src/graphql/apollo/index.js"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,5 @@
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.14.2",
     "typescript": "^5.4.5"
-  },
-  "type": "module"
+  }
 }

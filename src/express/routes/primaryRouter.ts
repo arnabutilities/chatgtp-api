@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import restRouter from './rest.js';
-import graphQlRouter from './graphql.js';
-import docRouter from './documentation.js';
-import { API_ENDPOINT, DOCUMENTATION_ENDPOINT, GRAPHQL_ENDPOINT } from "../resources/config.js";
+import restRouter from './rest';
+import graphQlRouter from './graphql';
+import docRouter from './documentation';
+import { API_ENDPOINT, DOCUMENTATION_ENDPOINT, GRAPHQL_ENDPOINT } from "../resources/config";
 
 // Create a new Router instance
 const primaryRouter = Router();

@@ -1,7 +1,7 @@
 // src/index.js
 import express, { Express } from "express";
 import dotenv from "dotenv";
-import primaryRouter from "./routes/primaryRouter.js";
+import primaryRouter from "./routes/primaryRouter";
 
 dotenv.config();
 

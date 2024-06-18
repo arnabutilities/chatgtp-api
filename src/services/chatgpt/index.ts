@@ -62,7 +62,7 @@ while(True):
 
     export interface PromptConfig{
         aiAssistantRole: string;
-        userRole: string;
+        userRole?: string;
         serviceName: string;
         userInput: PromptUserInput[];
         instructions: string[];
@@ -149,10 +149,8 @@ export class PromptManager {
             }
         }
         this._prompt.userInput = [{
-            inputDescription: "user details is as below",
-            inputData: `
-            
-            `
+            inputDescription: "user name",
+            inputData: "Arnab Chaudhuri"
         },
         ...prompt.userInput
     ]

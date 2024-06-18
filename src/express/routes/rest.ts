@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import * as crypto from "crypto";
+import { PromptManager } from '../../services/chatgpt';
 
 // New Router instance
 const router = Router();
@@ -24,8 +25,19 @@ router.get('/', (req: Request, res: Response) => {
   res.send('rest route!'+req.headers['APP-SERVER-REQUEST-UUID']);
 });
 
-router.get('/:id', (req: Request, res: Response) => {
-  res.send(`User ${req.params.id} route!`);
+router.get('/prompt', (req: Request, res: Response) => {
+  let pm = new PromptManager({
+    aiAssistantRole: "senior software engineer",
+    serviceName: "product development",
+    instructions: ["rewrite the provided text in email format", "email should address the team"],
+    userInput: [
+      {
+        inputDescription: "provided text",
+        inputData: "I need to take from 20th june 2024 to 25th june 2024, reason: personal work"
+      }
+    ]
+  });
+  res.send(pm.generatedPrompt);
 });
 
 export default router;
